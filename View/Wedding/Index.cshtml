@@ -1,0 +1,102 @@
+﻿@page
+@using ProjektProgramskog.WeddingDetailsViewModel
+@model WeddingDetailsViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedding Details</title>
+</head>
+<body>
+    <h1>Wedding Details</h1>
+
+    <h2>Partners</h2>
+    <ul>
+        @foreach (var partner in Model.Partneri)
+        {
+            <li>@partner.ImePartnera (@partner.Kategorija) - Email: @partner.Email, Phone: @partner.BrojTelefona</li>
+        }
+    </ul>
+
+    <h2>Flowers Shops</h2>
+    <ul>
+        @foreach (var cvjecarna in Model.Cvjećarne)
+        {
+            <li>@cvjecarna.Ime - Price: @cvjecarna.Cijena</li>
+        }
+    </ul>
+
+    <h2>Musicians</h2>
+    <ul>
+        @foreach (var glazbenik in Model.Glazbenici)
+        {
+            <li>@glazbenik.Ime - Price per Hour: @glazbenik.CijenaPoSatu</li>
+        }
+    </ul>
+
+    <h2>Guests</h2>
+    <ul>
+        @foreach (var gost in Model.Gosti)
+        {
+            <li>@gost.Ime - Status: @gost.StatusGosta</li>
+        }
+    </ul>
+
+    <h2>Food</h2>
+    <ul>
+        @foreach (var hrana in Model.Hrana)
+        {
+            <li>@hrana.Naziv - Price per Person: @hrana.CijenaPoOsobi</li>
+        }
+    </ul>
+
+    <h2>Reports</h2>
+    <ul>
+        @foreach (var izvjestaj in Model.Izvještaji)
+        {
+            <li>@izvjestaj.Sadržaj - Type: @izvjestaj.TipIzvještaja</li>
+        }
+    </ul>
+
+    <h2>Locations</h2>
+    <ul>
+        @foreach (var lokacija in Model.Lokacije)
+        {
+            <li>@lokacija.Ime - Price per Day: @lokacija.CijenaPoDanu</li>
+        }
+    </ul>
+
+    <h2>Menu</h2>
+    <ul>
+        @foreach (var meni in Model.Meni)
+        {
+            <li>@meni.VrstaHrane - Price: @meni.Cijena</li>
+        }
+    </ul>
+
+    <h2>Playlists</h2>
+    <ul>
+        @foreach (var playlist in Model.Playlists)
+        {
+            <li>@playlist.ListPjesama</li>
+        }
+    </ul>
+
+    <h2>Offers</h2>
+    <ul>
+        @foreach (var ponuda in Model.Ponude)
+        {
+            <li>@ponuda.Ime - Price: @ponuda.Cijena</li>
+        }
+    </ul>
+
+    <h2>Weddings</h2>
+    <ul>
+        @foreach (var vjencanje in Model.Vjenčanja)
+        {
+            <li>@vjencanje.ImeKontakta - Notes: @vjencanje.Napomena</li>
+        }
+    </ul>
+</body>
+</html>
+

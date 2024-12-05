@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.WeddingController",
+    "Method": "GetDetails",
+    "RelativePath": "api/Wedding/details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

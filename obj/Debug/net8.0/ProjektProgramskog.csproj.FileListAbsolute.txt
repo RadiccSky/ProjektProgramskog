@@ -174,3 +174,5 @@ C:\Users\Pepi\source\repos\ProjektProgramskog\ProjektProgramskog\bin\Debug\net8.
 C:\Users\Pepi\source\repos\ProjektProgramskog\ProjektProgramskog\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Pepi\source\repos\ProjektProgramskog\ProjektProgramskog\obj\Debug\net8.0\ProjektProgramskog.RazorAssemblyInfo.cache
 C:\Users\Pepi\source\repos\ProjektProgramskog\ProjektProgramskog\obj\Debug\net8.0\ProjektProgramskog.RazorAssemblyInfo.cs
+C:\Users\Pepi\source\repos\ProjektProgramskog\ProjektProgramskog\obj\Debug\net8.0\ProjektProgramskog.sourcelink.json
+C:\Users\Pepi\source\repos\ProjektProgramskog\ProjektProgramskog\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

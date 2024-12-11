@@ -5,6 +5,191 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Ponude": {
+      "get": {
+        "tags": [
+          "Ponude"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ponude"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ponude"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ponude"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ponude"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ponude"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ponude"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ponude"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ponude"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ponude"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ponude"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ponude/{id}": {
+      "get": {
+        "tags": [
+          "Ponude"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ponude"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ponude"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ponude"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ponude"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ponude"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ponude"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ponude"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ponude"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Wedding/details": {
       "get": {
         "tags": [
@@ -18,5 +203,197 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "Gosti": {
+        "type": "object",
+        "properties": {
+          "gostiId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idvjenčanja": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojStola": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "statusGosta": {
+            "type": "string",
+            "nullable": true
+          },
+          "idvjenčanjaNavigation": {
+            "$ref": "#/components/schemas/Vjenčanje"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Izvještaj": {
+        "type": "object",
+        "properties": {
+          "izvještajId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idvjenčanja": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipIzvještaja": {
+            "type": "string",
+            "nullable": true
+          },
+          "sadržaj": {
+            "type": "string",
+            "nullable": true
+          },
+          "idvjenčanjaNavigation": {
+            "$ref": "#/components/schemas/Vjenčanje"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Partneri": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imePartnera": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojTelefona": {
+            "type": "string",
+            "nullable": true
+          },
+          "kategorija": {
+            "type": "string",
+            "nullable": true
+          },
+          "provizija": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hrana": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "customPartneri": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Ponude": {
+        "type": "object",
+        "properties": {
+          "ponudaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idvjenčanja": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "cijena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "detalji": {
+            "type": "string",
+            "nullable": true
+          },
+          "jeUnaprijedDefiniran": {
+            "type": "boolean"
+          },
+          "jsonPodaci": {
+            "type": "string",
+            "nullable": true
+          },
+          "idvjenčanjaNavigation": {
+            "$ref": "#/components/schemas/Vjenčanje"
+          },
+          "partner": {
+            "$ref": "#/components/schemas/Partneri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Vjenčanje": {
+        "type": "object",
+        "properties": {
+          "idvjenčanja": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "datum": {
+            "type": "string",
+            "format": "date"
+          },
+          "imeKontakta": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojKontakta": {
+            "type": "string",
+            "nullable": true
+          },
+          "template": {
+            "type": "string",
+            "nullable": true
+          },
+          "napomena": {
+            "type": "string",
+            "nullable": true
+          },
+          "gostis": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Gosti"
+            },
+            "nullable": true
+          },
+          "izvještajs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Izvještaj"
+            },
+            "nullable": true
+          },
+          "ponudes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ponude"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

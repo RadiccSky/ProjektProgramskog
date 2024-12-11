@@ -15,7 +15,11 @@ public partial class Ponude
 
     public decimal? Cijena { get; set; }
 
-    public string? Detalji { get; set; }
+    public string? Detalji { get; set; } // Dodatni opis ponude
+
+    public bool JeUnaprijedDefiniran { get; set; } // True za sistemske predloške, False za prilagođene
+
+    public string? JsonPodaci { get; set; } // Spremanje dodatnih podataka kao JSON
 
     public virtual Vjenčanje IdvjenčanjaNavigation { get; set; } = null!;
 

@@ -75,12 +75,14 @@
     </ul>
 
     <h2>Playlists</h2>
-    <ul>
+    <!-- Dropdown for Playlists -->
+    <select id="playlistDropdown">
+        <option value="">Select Playlist</option>
         @foreach (var playlist in Model.Playlists)
         {
-            <li>@playlist.ListPjesama</li>
+            <option value="@playlist.PlaylistId">@playlist.ListPjesama</option>
         }
-    </ul>
+    </select>
 
     <h2>Offers</h2>
     <ul>
@@ -99,4 +101,3 @@
     </ul>
 </body>
 </html>
-

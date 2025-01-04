@@ -311,6 +311,7 @@ public partial class Pi05Context : DbContext
                 CijenaPoSatu = 200,
                 OsnovnaCijena = 1000,
                 PartnerId = 2
+
             }
         );
 
@@ -393,7 +394,20 @@ public partial class Pi05Context : DbContext
                 PlaylistId = 1,
                 GlazbenikId = 1,
                 ListPjesama = "Song 1, Song 2, Song 3"
-            }
+            },
+
+             new Playlist
+             {
+                 PlaylistId = 2,
+                 GlazbenikId = 1,
+                 ListPjesama = "Song 5, Song 6, Song 7"
+             },
+              new Playlist
+              {
+                  PlaylistId = 3,
+                  GlazbenikId = 1,
+                  ListPjesama = "Song 5, Song 6, Song 7"
+              }
         );
 
         modelBuilder.Entity<Ponude>().HasData(

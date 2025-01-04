@@ -5,6 +5,247 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Glazbenici": {
+      "get": {
+        "tags": [
+          "Glazbenici"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Glazbenici"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Glazbenici"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Glazbenici"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Hrana": {
+      "get": {
+        "tags": [
+          "Hrana"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hrana"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hrana"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hrana"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lokacija": {
+      "get": {
+        "tags": [
+          "Lokacija"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lokacija"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lokacija"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lokacija"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Playlist": {
+      "get": {
+        "tags": [
+          "Playlist"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playlist"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playlist"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playlist"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Playlist/{id}": {
+      "get": {
+        "tags": [
+          "Playlist"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playlist"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playlist"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playlist"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Playlist/musician/{glazbenikId}": {
+      "get": {
+        "tags": [
+          "Playlist"
+        ],
+        "parameters": [
+          {
+            "name": "glazbenikId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playlist"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playlist"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playlist"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Ponude": {
       "get": {
         "tags": [
@@ -205,6 +446,48 @@
   },
   "components": {
     "schemas": {
+      "Glazbenici": {
+        "type": "object",
+        "properties": {
+          "glazbenikId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "osnovnaCijena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "cijenaPoSatu": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "slobodniDatumi": {
+            "type": "string",
+            "nullable": true
+          },
+          "partner": {
+            "$ref": "#/components/schemas/Partneri"
+          },
+          "playlists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Playlist"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Gosti": {
         "type": "object",
         "properties": {
@@ -235,6 +518,47 @@
         },
         "additionalProperties": false
       },
+      "Hrana": {
+        "type": "object",
+        "properties": {
+          "hranaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipHrane": {
+            "type": "string",
+            "nullable": true
+          },
+          "naziv": {
+            "type": "string",
+            "nullable": true
+          },
+          "cijenaPoOsobi": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "detalji": {
+            "type": "string",
+            "nullable": true
+          },
+          "menis": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Meni"
+            },
+            "nullable": true
+          },
+          "partner": {
+            "$ref": "#/components/schemas/Partneri"
+          }
+        },
+        "additionalProperties": false
+      },
       "Izvještaj": {
         "type": "object",
         "properties": {
@@ -256,6 +580,71 @@
           },
           "idvjenčanjaNavigation": {
             "$ref": "#/components/schemas/Vjenčanje"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Lokacija": {
+        "type": "object",
+        "properties": {
+          "lokacijaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "cijenaPoDanu": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "catering": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "partner": {
+            "$ref": "#/components/schemas/Partneri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Meni": {
+        "type": "object",
+        "properties": {
+          "meniId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hranaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vrstaHrane": {
+            "type": "string",
+            "nullable": true
+          },
+          "brojSljedova": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "customObrok": {
+            "type": "string",
+            "nullable": true
+          },
+          "cijena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hrana": {
+            "$ref": "#/components/schemas/Hrana"
           }
         },
         "additionalProperties": false
@@ -295,6 +684,27 @@
           "customPartneri": {
             "type": "boolean",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Playlist": {
+        "type": "object",
+        "properties": {
+          "playlistId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "glazbenikId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listPjesama": {
+            "type": "string",
+            "nullable": true
+          },
+          "glazbenik": {
+            "$ref": "#/components/schemas/Glazbenici"
           }
         },
         "additionalProperties": false

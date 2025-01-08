@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjektProgramskog.Model;
 
@@ -11,9 +12,11 @@ using ProjektProgramskog.Model;
 namespace ProjektProgramskog.Migrations
 {
     [DbContext(typeof(Pi05Context))]
-    partial class Pi05ContextModelSnapshot : ModelSnapshot
+    [Migration("20250106190938_Partner3")]
+    partial class Partner3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

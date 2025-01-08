@@ -5,6 +5,44 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Cvijecarna": {
+      "get": {
+        "tags": [
+          "Cvijecarna"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cvijećarna"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cvijećarna"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cvijećarna"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Glazbenici": {
       "get": {
         "tags": [
@@ -150,6 +188,52 @@
                   "items": {
                     "$ref": "#/components/schemas/Playlist"
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Playlist"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Playlist"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Playlist"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Playlist"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playlist"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playlist"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playlist"
                 }
               }
             }
@@ -446,6 +530,36 @@
   },
   "components": {
     "schemas": {
+      "Cvijećarna": {
+        "type": "object",
+        "properties": {
+          "cvijećarnaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ime": {
+            "type": "string",
+            "nullable": true
+          },
+          "cijena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "detalji": {
+            "type": "string",
+            "nullable": true
+          },
+          "partner": {
+            "$ref": "#/components/schemas/Partneri"
+          }
+        },
+        "additionalProperties": false
+      },
       "Glazbenici": {
         "type": "object",
         "properties": {
@@ -702,9 +816,6 @@
           "listPjesama": {
             "type": "string",
             "nullable": true
-          },
-          "glazbenik": {
-            "$ref": "#/components/schemas/Glazbenici"
           }
         },
         "additionalProperties": false

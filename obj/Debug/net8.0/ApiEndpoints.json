@@ -1,5 +1,25 @@
 [
   {
+    "ContainingType": "ProjektProgramskog.Controllers.CvijecarnaController",
+    "Method": "GetCvije\u0107arna",
+    "RelativePath": "api/Cvijecarna",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ProjektProgramskog.Model.Cvije\u0107arna, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ProjektProgramskog.Controllers.GlazbeniciController",
     "Method": "GetGlazbenici",
     "RelativePath": "api/Glazbenici",
@@ -70,6 +90,32 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[ProjektProgramskog.Model.Playlist, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.PlaylistController",
+    "Method": "PostPlaylist",
+    "RelativePath": "api/Playlist",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playlist",
+        "Type": "ProjektProgramskog.Model.Playlist",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjektProgramskog.Model.Playlist",
         "MediaTypes": [
           "text/plain",
           "application/json",

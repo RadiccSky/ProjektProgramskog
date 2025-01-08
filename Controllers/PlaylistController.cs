@@ -25,6 +25,15 @@ namespace ProjektProgramskog.Controllers
             return Ok(playlists);
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult<Playlist>> PostPlaylist(Playlist playlist)
+        {
+            _context.Playlists.Add(playlist);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetPlaylist), new { id = playlist.PlaylistId }, playlist);
+        }
         // Dohvat pojedine playliste po ID-u
         [HttpGet("{id}")]
         public ActionResult<Playlist> GetPlaylist(int id)
@@ -55,5 +64,6 @@ namespace ProjektProgramskog.Controllers
             return Ok(playlists);
         }
 
+        
     }
 }

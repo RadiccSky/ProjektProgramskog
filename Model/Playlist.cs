@@ -11,5 +11,4 @@ public partial class Playlist
 
     public string? ListPjesama { get; set; }
 
-    public virtual Glazbenici Glazbenik { get; set; } = null!;
 }

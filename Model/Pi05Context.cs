@@ -224,9 +224,9 @@ public partial class Pi05Context : DbContext
             entity.Property(e => e.GlazbenikId).HasColumnName("GlazbenikID");
             entity.Property(e => e.ListPjesama).HasColumnType("text");
 
-            entity.HasOne(d => d.Glazbenik).WithMany(p => p.Playlists)
-                .HasForeignKey(d => d.GlazbenikId)
-                .HasConstraintName("FK__Playlists__Glazb__5629CD9C");
+           // entity.HasOne(d => d.Glazbenik).WithMany(p => p.Playlists)
+            //    .HasForeignKey(d => d.GlazbenikId)
+              //  .HasConstraintName("FK__Playlists__Glazb__5629CD9C");
         });
 
         modelBuilder.Entity<Ponude>(entity =>
@@ -290,7 +290,18 @@ public partial class Pi05Context : DbContext
             BrojTelefona = "987-654-321",
             Kategorija = "Glazba",
             Provizija = 0.15m
-        }
+        },
+
+         new Partneri
+         {
+             PartnerId = 3,
+             ImePartnera = "Ajkula",
+             Email = "contact@guitarmasters.com",
+             BrojTelefona = "987-654-321",
+             Kategorija = "Glazba",
+             Provizija = 0.15m
+         }
+
     );
 
         modelBuilder.Entity<Cvijećarna>().HasData(
@@ -307,12 +318,23 @@ public partial class Pi05Context : DbContext
             new Glazbenici
             {
                 GlazbenikId = 1,
-                Ime = "The Melody Band",
+                Ime = "Guitar Masters",
                 CijenaPoSatu = 200,
                 OsnovnaCijena = 1000,
                 PartnerId = 2
 
-            }
+            },
+
+              new Glazbenici
+              {
+                  GlazbenikId = 2,
+                  Ime = "Ajkula",
+                  CijenaPoSatu = 200,
+                  OsnovnaCijena = 1000,
+                  PartnerId = 3
+
+              }
+
         );
 
         modelBuilder.Entity<Gosti>().HasData(

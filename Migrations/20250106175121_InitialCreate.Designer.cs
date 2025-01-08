@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjektProgramskog.Model;
 
@@ -11,9 +12,11 @@ using ProjektProgramskog.Model;
 namespace ProjektProgramskog.Migrations
 {
     [DbContext(typeof(Pi05Context))]
-    partial class Pi05ContextModelSnapshot : ModelSnapshot
+    [Migration("20250106175121_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,17 +138,9 @@ namespace ProjektProgramskog.Migrations
                         {
                             GlazbenikId = 1,
                             CijenaPoSatu = 200m,
-                            Ime = "Guitar Masters",
+                            Ime = "The Melody Band",
                             OsnovnaCijena = 1000m,
                             PartnerId = 2
-                        },
-                        new
-                        {
-                            GlazbenikId = 2,
-                            CijenaPoSatu = 200m,
-                            Ime = "Ajkula",
-                            OsnovnaCijena = 1000m,
-                            PartnerId = 3
                         });
                 });
 
@@ -449,15 +444,6 @@ namespace ProjektProgramskog.Migrations
                             BrojTelefona = "987-654-321",
                             Email = "contact@guitarmasters.com",
                             ImePartnera = "Guitar Masters",
-                            Kategorija = "Glazba",
-                            Provizija = 0.15m
-                        },
-                        new
-                        {
-                            PartnerId = 3,
-                            BrojTelefona = "987-654-321",
-                            Email = "contact@guitarmasters.com",
-                            ImePartnera = "Ajkula",
                             Kategorija = "Glazba",
                             Provizija = 0.15m
                         });

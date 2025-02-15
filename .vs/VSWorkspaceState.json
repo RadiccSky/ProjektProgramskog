@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\clientapp",
+    "\\View",
+    "\\View\\Wedding"
   ],
-  "SelectedNode": "\\C:\\Users\\Pepi\\source\\repos\\ProjektProgramskog\\ProjektProgramskog",
+  "SelectedNode": "\\ProjektProgramskog.csproj",
   "PreviewInSolutionExplorer": false
 }

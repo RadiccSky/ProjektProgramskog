@@ -20,4 +20,7 @@ public partial class Glazbenici
     public virtual Partneri Partner { get; set; } = null!;
 
     public virtual ICollection<Playlist> Playlists { get; set; } = new List<Playlist>();
+
+    // Add this navigation property
+    public virtual ICollection<Vjenčanje> Vjenčanjes { get; set; } = new List<Vjenčanje>();
 }

@@ -38,6 +38,7 @@ namespace ProjektProgramskog.Controllers
         }
 
         // POST: api/ponude
+        // Ako Ponudu ne mognes proslijedit sa UI  napravi PonudaDTO
         [HttpPost]
         public async Task<ActionResult<Ponude>> PostPonuda(Ponude ponuda)
         {

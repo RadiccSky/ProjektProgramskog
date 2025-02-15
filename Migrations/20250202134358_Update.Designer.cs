@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjektProgramskog.Model;
 
@@ -11,9 +12,11 @@ using ProjektProgramskog.Model;
 namespace ProjektProgramskog.Migrations
 {
     [DbContext(typeof(Pi05Context))]
-    partial class Pi05ContextModelSnapshot : ModelSnapshot
+    [Migration("20250202134358_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,61 +24,6 @@ namespace ProjektProgramskog.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Cvijećarna", b =>
-                {
-                    b.Property<int>("CvijecarnaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("CvijećarnaID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CvijecarnaId"));
-
-                    b.Property<decimal?>("Cijena")
-                        .HasColumnType("decimal(10, 2)");
-
-                    b.Property<string>("Detalji")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Ime")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int>("PartnerId")
-                        .HasColumnType("int")
-                        .HasColumnName("PartnerID");
-
-                    b.HasKey("CvijecarnaId")
-                        .HasName("PK__Cvijećar__BFA8E7A21956F4E2");
-
-                    b.HasIndex("PartnerId");
-
-                    b.ToTable("Cvijećarna", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            CvijecarnaId = 1,
-                            Cijena = 500m,
-                            Ime = "Cvjetna oaza",
-                            PartnerId = 1
-                        },
-                        new
-                        {
-                            CvijecarnaId = 2,
-                            Cijena = 650m,
-                            Ime = "Cvijecarna Ana",
-                            PartnerId = 2
-                        },
-                        new
-                        {
-                            CvijecarnaId = 3,
-                            Cijena = 700m,
-                            Ime = "Buket snova",
-                            PartnerId = 3
-                        });
-                });
 
             modelBuilder.Entity("ProjektProgramskog.Model.CustomPartneri", b =>
                 {
@@ -108,6 +56,47 @@ namespace ProjektProgramskog.Migrations
                     b.HasIndex("PartnerId");
 
                     b.ToTable("CustomPartneri", (string)null);
+                });
+
+            modelBuilder.Entity("ProjektProgramskog.Model.Cvijećarna", b =>
+                {
+                    b.Property<int>("CvijećarnaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("CvijećarnaID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CvijećarnaId"));
+
+                    b.Property<decimal?>("Cijena")
+                        .HasColumnType("decimal(10, 2)");
+
+                    b.Property<string>("Detalji")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Ime")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("PartnerId")
+                        .HasColumnType("int")
+                        .HasColumnName("PartnerID");
+
+                    b.HasKey("CvijećarnaId")
+                        .HasName("PK__Cvijećar__BFA8E7A21956F4E2");
+
+                    b.HasIndex("PartnerId");
+
+                    b.ToTable("Cvijećarna", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CvijećarnaId = 1,
+                            Cijena = 500m,
+                            Ime = "Floral Dreams",
+                            PartnerId = 1
+                        });
                 });
 
             modelBuilder.Entity("ProjektProgramskog.Model.Glazbenici", b =>
@@ -239,71 +228,15 @@ namespace ProjektProgramskog.Migrations
                         {
                             HranaId = 1,
                             CijenaPoOsobi = 50.00m,
-                            Naziv = "Teleći Medaljoni",
+                            Naziv = "Roast Beef",
                             PartnerId = 1,
                             TipHrane = "Glavno jelo"
                         },
                         new
                         {
                             HranaId = 2,
-                            CijenaPoOsobi = 40.00m,
-                            Naziv = "Pečena janjetina s krumpirima",
-                            PartnerId = 1,
-                            TipHrane = "Glavno jelo"
-                        },
-                        new
-                        {
-                            HranaId = 3,
-                            CijenaPoOsobi = 60.00m,
-                            Naziv = "Pečena patka s mlincima",
-                            PartnerId = 1,
-                            TipHrane = "Glavno jelo"
-                        },
-                        new
-                        {
-                            HranaId = 4,
-                            CijenaPoOsobi = 10.00m,
-                            Naziv = "Cheesecake",
-                            PartnerId = 1,
-                            TipHrane = "Desert"
-                        },
-                        new
-                        {
-                            HranaId = 5,
-                            CijenaPoOsobi = 11.00m,
-                            Naziv = "Baklava",
-                            PartnerId = 1,
-                            TipHrane = "Desert"
-                        },
-                        new
-                        {
-                            HranaId = 6,
-                            CijenaPoOsobi = 9.00m,
-                            Naziv = "Čokoladni lava cake",
-                            PartnerId = 1,
-                            TipHrane = "Desert"
-                        },
-                        new
-                        {
-                            HranaId = 7,
-                            CijenaPoOsobi = 20.00m,
-                            Naziv = "Rolana puretina ili piletina punjena sirom i šunkom",
-                            PartnerId = 1,
-                            TipHrane = "Predjelo"
-                        },
-                        new
-                        {
-                            HranaId = 8,
-                            CijenaPoOsobi = 15.00m,
-                            Naziv = "Tart od sira i špinata",
-                            PartnerId = 1,
-                            TipHrane = "Predjelo"
-                        },
-                        new
-                        {
-                            HranaId = 9,
-                            CijenaPoOsobi = 11.00m,
-                            Naziv = "Juha",
+                            CijenaPoOsobi = 30.00m,
+                            Naziv = "Chicken Salad",
                             PartnerId = 1,
                             TipHrane = "Predjelo"
                         });
@@ -356,6 +289,9 @@ namespace ProjektProgramskog.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LokacijaId"));
 
+                    b.Property<bool?>("Catering")
+                        .HasColumnType("bit");
+
                     b.Property<decimal?>("CijenaPoDanu")
                         .HasColumnType("decimal(10, 2)");
 
@@ -380,21 +316,7 @@ namespace ProjektProgramskog.Migrations
                         {
                             LokacijaId = 1,
                             CijenaPoDanu = 1500.00m,
-                            Ime = "Bijela Ruža",
-                            PartnerId = 1
-                        },
-                        new
-                        {
-                            LokacijaId = 2,
-                            CijenaPoDanu = 1500.00m,
-                            Ime = "Vjenčana Oaza",
-                            PartnerId = 1
-                        },
-                        new
-                        {
-                            LokacijaId = 3,
-                            CijenaPoDanu = 1500.00m,
-                            Ime = "Bajka",
+                            Ime = "Beach Resort",
                             PartnerId = 1
                         });
                 });
@@ -504,26 +426,8 @@ namespace ProjektProgramskog.Migrations
                             PartnerId = 1,
                             BrojTelefona = "123-456-789",
                             Email = "info@floraldreams.com",
-                            ImePartnera = "Cvjetna oaza",
-                            Kategorija = "Cvijećarna",
-                            Provizija = 0.10m
-                        },
-                        new
-                        {
-                            PartnerId = 6,
-                            BrojTelefona = "063-111-222",
-                            Email = "info@floraldreams.com",
-                            ImePartnera = "Cvijecarna Ana",
-                            Kategorija = "Cvijećarna",
-                            Provizija = 0.10m
-                        },
-                        new
-                        {
-                            PartnerId = 5,
-                            BrojTelefona = "063-111-333",
-                            Email = "info@floraldreams.com",
-                            ImePartnera = "Buket snova",
-                            Kategorija = "Cvijećarna",
+                            ImePartnera = "Floral Dreams",
+                            Kategorija = "Cvjećarna",
                             Provizija = 0.10m
                         },
                         new
@@ -543,31 +447,6 @@ namespace ProjektProgramskog.Migrations
                             ImePartnera = "Ajkula",
                             Kategorija = "Glazba",
                             Provizija = 0.15m
-                        },
-                        new
-                        {
-                            PartnerId = 4,
-                            BrojTelefona = "123-456-789",
-                            Email = "bijelaruza",
-                            ImePartnera = "Bijela Ruža",
-                            Kategorija = "Lokacija",
-                            Provizija = 0.20m
-                        },
-                        new
-                        {
-                            PartnerId = 8,
-                            BrojTelefona = "123-456-789",
-                            Email = "vjenčanaoaza",
-                            ImePartnera = "Vjenčana Oaza",
-                            Kategorija = "Lokacija"
-                        },
-                        new
-                        {
-                            PartnerId = 9,
-                            BrojTelefona = "123-456-789",
-                            Email = "bajka",
-                            ImePartnera = "Bajka",
-                            Kategorija = "Lokacija"
                         });
                 });
 
@@ -602,37 +481,19 @@ namespace ProjektProgramskog.Migrations
                         {
                             PlaylistId = 1,
                             GlazbenikId = 1,
-                            ListPjesama = "Narodna"
+                            ListPjesama = "Song 1, Song 2, Song 3"
                         },
                         new
                         {
                             PlaylistId = 2,
                             GlazbenikId = 1,
-                            ListPjesama = "Folk"
+                            ListPjesama = "Song 5, Song 6, Song 7"
                         },
                         new
                         {
                             PlaylistId = 3,
                             GlazbenikId = 1,
-                            ListPjesama = "Pop"
-                        },
-                        new
-                        {
-                            PlaylistId = 4,
-                            GlazbenikId = 2,
-                            ListPjesama = "Narodna"
-                        },
-                        new
-                        {
-                            PlaylistId = 5,
-                            GlazbenikId = 2,
-                            ListPjesama = "Folk"
-                        },
-                        new
-                        {
-                            PlaylistId = 6,
-                            GlazbenikId = 2,
-                            ListPjesama = "Pop"
+                            ListPjesama = "Song 5, Song 6, Song 7"
                         });
                 });
 
@@ -702,7 +563,7 @@ namespace ProjektProgramskog.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Vjenčanje", b =>
+            modelBuilder.Entity("ProjektProgramskog.Model.Vjenčanje", b =>
                 {
                     b.Property<int>("Idvjenčanja")
                         .ValueGeneratedOnAdd()
@@ -716,37 +577,16 @@ namespace ProjektProgramskog.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<int?>("CvijecarnaId")
-                        .HasColumnType("int");
-
                     b.Property<DateOnly>("Datum")
                         .HasColumnType("date");
-
-                    b.Property<int?>("DesertId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GlavnoJeloId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GlazbenikId")
-                        .HasColumnType("int");
 
                     b.Property<string>("ImeKontakta")
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int?>("LokacijaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Napomena")
                         .HasColumnType("text");
-
-                    b.Property<int?>("PlaylistId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PredjeloId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Template")
                         .HasMaxLength(20)
@@ -755,20 +595,6 @@ namespace ProjektProgramskog.Migrations
 
                     b.HasKey("Idvjenčanja")
                         .HasName("PK__Vjenčanj__A710B34E885FBD97");
-
-                    b.HasIndex("CvijecarnaId");
-
-                    b.HasIndex("DesertId");
-
-                    b.HasIndex("GlavnoJeloId");
-
-                    b.HasIndex("GlazbenikId");
-
-                    b.HasIndex("LokacijaId");
-
-                    b.HasIndex("PlaylistId");
-
-                    b.HasIndex("PredjeloId");
 
                     b.ToTable("Vjenčanje", (string)null);
 
@@ -784,18 +610,6 @@ namespace ProjektProgramskog.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Cvijećarna", b =>
-                {
-                    b.HasOne("ProjektProgramskog.Model.Partneri", "Partner")
-                        .WithMany("Cvijećarnas")
-                        .HasForeignKey("PartnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK__Cvijećarn__Partn__403A8C7D");
-
-                    b.Navigation("Partner");
-                });
-
             modelBuilder.Entity("ProjektProgramskog.Model.CustomPartneri", b =>
                 {
                     b.HasOne("ProjektProgramskog.Model.Partneri", "Partner")
@@ -804,6 +618,18 @@ namespace ProjektProgramskog.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_CustomPartneri_Partneri");
+
+                    b.Navigation("Partner");
+                });
+
+            modelBuilder.Entity("ProjektProgramskog.Model.Cvijećarna", b =>
+                {
+                    b.HasOne("ProjektProgramskog.Model.Partneri", "Partner")
+                        .WithMany("Cvijećarnas")
+                        .HasForeignKey("PartnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK__Cvijećarn__Partn__403A8C7D");
 
                     b.Navigation("Partner");
                 });
@@ -822,7 +648,7 @@ namespace ProjektProgramskog.Migrations
 
             modelBuilder.Entity("ProjektProgramskog.Model.Gosti", b =>
                 {
-                    b.HasOne("Vjenčanje", "IdvjenčanjaNavigation")
+                    b.HasOne("ProjektProgramskog.Model.Vjenčanje", "IdvjenčanjaNavigation")
                         .WithMany("Gostis")
                         .HasForeignKey("Idvjenčanja")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -846,7 +672,7 @@ namespace ProjektProgramskog.Migrations
 
             modelBuilder.Entity("ProjektProgramskog.Model.Izvještaj", b =>
                 {
-                    b.HasOne("Vjenčanje", "IdvjenčanjaNavigation")
+                    b.HasOne("ProjektProgramskog.Model.Vjenčanje", "IdvjenčanjaNavigation")
                         .WithMany("Izvještajs")
                         .HasForeignKey("Idvjenčanja")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -889,7 +715,7 @@ namespace ProjektProgramskog.Migrations
 
             modelBuilder.Entity("ProjektProgramskog.Model.Ponude", b =>
                 {
-                    b.HasOne("Vjenčanje", "IdvjenčanjaNavigation")
+                    b.HasOne("ProjektProgramskog.Model.Vjenčanje", "IdvjenčanjaNavigation")
                         .WithMany("Ponudes")
                         .HasForeignKey("Idvjenčanja")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -908,73 +734,14 @@ namespace ProjektProgramskog.Migrations
                     b.Navigation("Partner");
                 });
 
-            modelBuilder.Entity("Vjenčanje", b =>
-                {
-                    b.HasOne("Cvijećarna", "Cvijecarna")
-                        .WithMany("Vjenčanjes")
-                        .HasForeignKey("CvijecarnaId")
-                        .HasConstraintName("FK__Vjenčanje__CvijecarnaId");
-
-                    b.HasOne("ProjektProgramskog.Model.Hrana", "Desert")
-                        .WithMany()
-                        .HasForeignKey("DesertId");
-
-                    b.HasOne("ProjektProgramskog.Model.Hrana", "GlavnoJelo")
-                        .WithMany()
-                        .HasForeignKey("GlavnoJeloId");
-
-                    b.HasOne("ProjektProgramskog.Model.Glazbenici", "Glazbenik")
-                        .WithMany("Vjenčanjes")
-                        .HasForeignKey("GlazbenikId");
-
-                    b.HasOne("ProjektProgramskog.Model.Lokacija", "Lokacija")
-                        .WithMany("Vjenčanjes")
-                        .HasForeignKey("LokacijaId")
-                        .HasConstraintName("FK__Vjenčanje__LokacijaId");
-
-                    b.HasOne("ProjektProgramskog.Model.Playlist", "Playlist")
-                        .WithMany()
-                        .HasForeignKey("PlaylistId");
-
-                    b.HasOne("ProjektProgramskog.Model.Hrana", "Predjelo")
-                        .WithMany()
-                        .HasForeignKey("PredjeloId");
-
-                    b.Navigation("Cvijecarna");
-
-                    b.Navigation("Desert");
-
-                    b.Navigation("GlavnoJelo");
-
-                    b.Navigation("Glazbenik");
-
-                    b.Navigation("Lokacija");
-
-                    b.Navigation("Playlist");
-
-                    b.Navigation("Predjelo");
-                });
-
-            modelBuilder.Entity("Cvijećarna", b =>
-                {
-                    b.Navigation("Vjenčanjes");
-                });
-
             modelBuilder.Entity("ProjektProgramskog.Model.Glazbenici", b =>
                 {
                     b.Navigation("Playlists");
-
-                    b.Navigation("Vjenčanjes");
                 });
 
             modelBuilder.Entity("ProjektProgramskog.Model.Hrana", b =>
                 {
                     b.Navigation("Menis");
-                });
-
-            modelBuilder.Entity("ProjektProgramskog.Model.Lokacija", b =>
-                {
-                    b.Navigation("Vjenčanjes");
                 });
 
             modelBuilder.Entity("ProjektProgramskog.Model.Partneri", b =>
@@ -992,7 +759,7 @@ namespace ProjektProgramskog.Migrations
                     b.Navigation("Ponudes");
                 });
 
-            modelBuilder.Entity("Vjenčanje", b =>
+            modelBuilder.Entity("ProjektProgramskog.Model.Vjenčanje", b =>
                 {
                     b.Navigation("Gostis");
 

@@ -81,6 +81,239 @@
         }
       }
     },
+    "/api/Gosti": {
+      "get": {
+        "tags": [
+          "Gosti"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Gosti"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Gosti"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Gosti"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gosti"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Gosti/{id}": {
+      "get": {
+        "tags": [
+          "Gosti"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Gosti"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gosti"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Gosti/AddGuests": {
+      "post": {
+        "tags": [
+          "Gosti"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gosti"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Hrana": {
       "get": {
         "tags": [
@@ -153,6 +386,107 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Lokacija/{id}": {
+      "get": {
+        "tags": [
+          "Lokacija"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lokacija"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lokacija"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lokacija"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Lokacija"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Lokacija"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Lokacija"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Lokacija"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lokacija"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -515,6 +849,358 @@
         }
       }
     },
+    "/api/Vjencanje": {
+      "get": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vjenčanje"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vjenčanje"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vjenčanje"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vjenčanje"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vjenčanje"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vjenčanje"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/{id}": {
+      "get": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vjenčanje"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vjenčanje"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vjenčanje"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vjenčanje"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vjenčanje"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vjenčanje"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/last": {
+      "get": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vjenčanje"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vjenčanje"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vjenčanje"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/last/gosti": {
+      "put": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gosti"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/last/glazbenik": {
+      "put": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GlazbenikUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GlazbenikUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GlazbenikUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/last/cvijecarna": {
+      "put": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CvijecarnaUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CvijecarnaUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CvijecarnaUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/last/lokacija": {
+      "put": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LokacijaUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LokacijaUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LokacijaUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Vjencanje/last/hrana": {
+      "put": {
+        "tags": [
+          "Vjencanje"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HranaUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HranaUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HranaUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Wedding/details": {
       "get": {
         "tags": [
@@ -530,10 +1216,20 @@
   },
   "components": {
     "schemas": {
+      "CvijecarnaUpdateDto": {
+        "type": "object",
+        "properties": {
+          "cvijecarnaId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "Cvijećarna": {
         "type": "object",
         "properties": {
-          "cvijećarnaId": {
+          "cvijecarnaId": {
             "type": "integer",
             "format": "int32"
           },
@@ -598,6 +1294,27 @@
               "$ref": "#/components/schemas/Playlist"
             },
             "nullable": true
+          },
+          "vjenčanjes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Vjenčanje"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GlazbenikUpdateDto": {
+        "type": "object",
+        "properties": {
+          "glazbenikId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "playlistId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -613,21 +1330,9 @@
             "type": "integer",
             "format": "int32"
           },
-          "ime": {
-            "type": "string",
-            "nullable": true
-          },
-          "brojStola": {
+          "brojGostiju": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "statusGosta": {
-            "type": "string",
-            "nullable": true
-          },
-          "idvjenčanjaNavigation": {
-            "$ref": "#/components/schemas/Vjenčanje"
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -673,27 +1378,20 @@
         },
         "additionalProperties": false
       },
-      "Izvještaj": {
+      "HranaUpdateDto": {
         "type": "object",
         "properties": {
-          "izvještajId": {
+          "predjeloId": {
             "type": "integer",
             "format": "int32"
           },
-          "idvjenčanja": {
+          "glavnoJeloId": {
             "type": "integer",
             "format": "int32"
           },
-          "tipIzvještaja": {
-            "type": "string",
-            "nullable": true
-          },
-          "sadržaj": {
-            "type": "string",
-            "nullable": true
-          },
-          "idvjenčanjaNavigation": {
-            "$ref": "#/components/schemas/Vjenčanje"
+          "desertId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -717,13 +1415,16 @@
             "type": "number",
             "format": "double",
             "nullable": true
-          },
-          "catering": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "partner": {
-            "$ref": "#/components/schemas/Partneri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LokacijaUpdateDto": {
+        "type": "object",
+        "properties": {
+          "lokacijaId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -891,25 +1592,39 @@
             "type": "string",
             "nullable": true
           },
-          "gostis": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Gosti"
-            },
+          "lokacijaId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
-          "izvještajs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Izvještaj"
-            },
+          "glazbenikId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
-          "ponudes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Ponude"
-            },
+          "playlistId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "predjeloId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "glavnoJeloId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "desertId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cvijecarnaId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },

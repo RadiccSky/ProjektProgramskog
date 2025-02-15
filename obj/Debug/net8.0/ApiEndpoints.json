@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ProjektProgramskog.Model.Cvije\u0107arna, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Cvije\u0107arna, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -30,6 +30,141 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[ProjektProgramskog.Model.Glazbenici, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.GostiController",
+    "Method": "GetGosti",
+    "RelativePath": "api/Gosti",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ProjektProgramskog.Model.Gosti, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.GostiController",
+    "Method": "PostGosti",
+    "RelativePath": "api/Gosti",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gosti",
+        "Type": "ProjektProgramskog.Model.Gosti",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjektProgramskog.Model.Gosti",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.GostiController",
+    "Method": "GetGosti",
+    "RelativePath": "api/Gosti/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjektProgramskog.Model.Gosti",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.GostiController",
+    "Method": "PutGosti",
+    "RelativePath": "api/Gosti/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "gosti",
+        "Type": "ProjektProgramskog.Model.Gosti",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.GostiController",
+    "Method": "DeleteGosti",
+    "RelativePath": "api/Gosti/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.GostiController",
+    "Method": "AddGuests",
+    "RelativePath": "api/Gosti/AddGuests",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gostis",
+        "Type": "ProjektProgramskog.Model.Gosti",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjektProgramskog.Model.Gosti",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -78,6 +213,69 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.LokacijaController",
+    "Method": "GetLokacija",
+    "RelativePath": "api/Lokacija/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProjektProgramskog.Model.Lokacija",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.LokacijaController",
+    "Method": "PutLokacija",
+    "RelativePath": "api/Lokacija/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lokacija",
+        "Type": "ProjektProgramskog.Model.Lokacija",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.LokacijaController",
+    "Method": "DeleteLokacija",
+    "RelativePath": "api/Lokacija/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ProjektProgramskog.Controllers.PlaylistController",
@@ -281,6 +479,205 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "GetVjen\u010Danja",
+    "RelativePath": "api/Vjencanje",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Vjen\u010Danje, ProjektProgramskog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "CreateVjencanje",
+    "RelativePath": "api/Vjencanje",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vjencanje",
+        "Type": "Vjen\u010Danje",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "GetVjencanje",
+    "RelativePath": "api/Vjencanje/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Vjen\u010Danje",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "PutVjencanje",
+    "RelativePath": "api/Vjencanje/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "vjencanje",
+        "Type": "Vjen\u010Danje",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "DeleteVjencanje",
+    "RelativePath": "api/Vjencanje/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "GetLastVjencanje",
+    "RelativePath": "api/Vjencanje/last",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Vjen\u010Danje",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "UpdateLastVjencanjeCvijecarna",
+    "RelativePath": "api/Vjencanje/last/cvijecarna",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cvijecarnaUpdateDto",
+        "Type": "ProjektProgramskog.Controllers.VjencanjeController\u002BCvijecarnaUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "UpdateLastVjencanjeGlazbenik",
+    "RelativePath": "api/Vjencanje/last/glazbenik",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "glazbenikUpdateDto",
+        "Type": "ProjektProgramskog.Controllers.VjencanjeController\u002BGlazbenikUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "UpdateLastVjencanjeGosti",
+    "RelativePath": "api/Vjencanje/last/gosti",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gosti",
+        "Type": "ProjektProgramskog.Model.Gosti",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "UpdateLastVjencanjeHrana",
+    "RelativePath": "api/Vjencanje/last/hrana",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hranaUpdateDto",
+        "Type": "ProjektProgramskog.Controllers.VjencanjeController\u002BHranaUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjektProgramskog.Controllers.VjencanjeController",
+    "Method": "UpdateLastVjencanjeLokacija",
+    "RelativePath": "api/Vjencanje/last/lokacija",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lokacijaUpdateDto",
+        "Type": "ProjektProgramskog.Controllers.VjencanjeController\u002BLokacijaUpdateDto",
         "IsRequired": true
       }
     ],

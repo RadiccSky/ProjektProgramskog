@@ -65,11 +65,11 @@ public partial class Pi05Context : DbContext
 
         modelBuilder.Entity<Cvijećarna>(entity =>
         {
-            entity.HasKey(e => e.CvijećarnaId).HasName("PK__Cvijećar__BFA8E7A21956F4E2");
+            entity.HasKey(e => e.CvijecarnaId).HasName("PK__Cvijećar__BFA8E7A21956F4E2");
 
             entity.ToTable("Cvijećarna");
 
-            entity.Property(e => e.CvijećarnaId).HasColumnName("CvijećarnaID");
+            entity.Property(e => e.CvijecarnaId).HasColumnName("CvijećarnaID");
             entity.Property(e => e.Cijena).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Detalji).HasColumnType("text");
             entity.Property(e => e.Ime)
@@ -111,17 +111,13 @@ public partial class Pi05Context : DbContext
 
             entity.Property(e => e.GostiId).HasColumnName("GostiID");
             entity.Property(e => e.Idvjenčanja).HasColumnName("IDVjenčanja");
-            entity.Property(e => e.Ime)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.StatusGosta)
-                .HasMaxLength(50)
-                .HasDefaultValue("Potvrdili dolazak");
+            entity.Property(e => e.BrojGostiju).HasColumnName("BrojGostiju");
 
             entity.HasOne(d => d.IdvjenčanjaNavigation).WithMany(p => p.Gostis)
                 .HasForeignKey(d => d.Idvjenčanja)
                 .HasConstraintName("FK__Gosti__IDVjenčan__00200768");
         });
+
 
         modelBuilder.Entity<Hrana>(entity =>
         {
@@ -171,7 +167,8 @@ public partial class Pi05Context : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.PartnerId).HasColumnName("PartnerID");
 
-            entity.HasOne(d => d.Partner).WithMany(p => p.Lokacijas)
+            entity.HasOne(d => d.Partner)
+                .WithMany(p => p.Lokacijas)
                 .HasForeignKey(d => d.PartnerId)
                 .HasConstraintName("FK__Lokacija__Partne__5070F446");
         });
@@ -270,18 +267,46 @@ public partial class Pi05Context : DbContext
             entity.Property(e => e.Template)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.Lokacija)
+                .WithMany(p => p.Vjenčanjes)
+                .HasForeignKey(d => d.LokacijaId)
+                .HasConstraintName("FK__Vjenčanje__LokacijaId");
+
+            entity.HasOne(d => d.Cvijecarna)
+      .WithMany(p => p.Vjenčanjes)
+      .HasForeignKey(d => d.CvijecarnaId)
+      .HasConstraintName("FK__Vjenčanje__CvijecarnaId");
         });
 
         modelBuilder.Entity<Partneri>().HasData(
         new Partneri
         {
             PartnerId = 1,
-            ImePartnera = "Floral Dreams",
+            ImePartnera = "Cvjetna oaza",
             Email = "info@floraldreams.com",
             BrojTelefona = "123-456-789",
-            Kategorija = "Cvjećarna",
+            Kategorija = "Cvijećarna",
             Provizija = 0.10m
         },
+         new Partneri
+         {
+             PartnerId = 6,
+             ImePartnera = "Cvijecarna Ana",
+             Email = "info@floraldreams.com",
+             BrojTelefona = "063-111-222",
+             Kategorija = "Cvijećarna",
+             Provizija = 0.10m
+         },
+           new Partneri
+           {
+               PartnerId = 5,
+               ImePartnera = "Buket snova",
+               Email = "info@floraldreams.com",
+               BrojTelefona = "063-111-333",
+               Kategorija = "Cvijećarna",
+               Provizija = 0.10m
+           },
         new Partneri
         {
             PartnerId = 2,
@@ -300,57 +325,95 @@ public partial class Pi05Context : DbContext
              BrojTelefona = "987-654-321",
              Kategorija = "Glazba",
              Provizija = 0.15m
+         },
+
+      
+
+         new Partneri
+         {
+             PartnerId = 4,
+             ImePartnera = "Bijela Ruža",
+             Email = "bijelaruza",
+             BrojTelefona = "123-456-789",
+             Kategorija = "Lokacija",
+             Provizija = 0.20m
+
+         }, 
+
+         new Partneri
+         {
+             PartnerId = 8,
+             ImePartnera = "Vjenčana Oaza",
+             Email = "vjenčanaoaza",
+             BrojTelefona = "123-456-789",
+             Kategorija = "Lokacija",
+
+         },
+         new Partneri
+         {
+             PartnerId = 9,
+             ImePartnera = "Bajka",
+             Email = "bajka",
+             BrojTelefona = "123-456-789",
+             Kategorija = "Lokacija",
+
          }
+
 
     );
 
         modelBuilder.Entity<Cvijećarna>().HasData(
             new Cvijećarna
             {
-                CvijećarnaId = 1,
-                Ime = "Floral Dreams",
+                CvijecarnaId = 1,
+                Ime = "Cvjetna oaza",
                 Cijena = 500,
                 PartnerId = 1
+            },
+            new Cvijećarna
+            {
+                CvijecarnaId = 2,
+                Ime = "Cvijecarna Ana",
+                Cijena = 650,
+                PartnerId = 2
+            },
+            new Cvijećarna
+            {
+                CvijecarnaId = 3,
+                Ime = "Buket snova",
+                Cijena = 700,
+                PartnerId = 3
             }
         );
 
         modelBuilder.Entity<Glazbenici>().HasData(
-            new Glazbenici
-            {
-                GlazbenikId = 1,
-                Ime = "Guitar Masters",
-                CijenaPoSatu = 200,
-                OsnovnaCijena = 1000,
-                PartnerId = 2
-
-            },
-
-              new Glazbenici
-              {
-                  GlazbenikId = 2,
-                  Ime = "Ajkula",
-                  CijenaPoSatu = 200,
-                  OsnovnaCijena = 1000,
-                  PartnerId = 3
-
-              }
-
-        );
+             new Glazbenici
+             {
+                 GlazbenikId = 1,
+                 PartnerId = 1,
+                 Ime = "Guitar Masters",
+                 OsnovnaCijena = 1000m,
+                 CijenaPoSatu = 200m,
+                 SlobodniDatumi = "2024-01-01,2024-01-02"
+             },
+             new Glazbenici
+             {
+                 GlazbenikId = 2,
+                 PartnerId = 2,
+                 Ime = "Ajkula",
+                 OsnovnaCijena = 1500m,
+                 CijenaPoSatu = 250m,
+                 SlobodniDatumi = "2024-01-03,2024-01-04"
+             }
+         );
 
         modelBuilder.Entity<Gosti>().HasData(
             new Gosti
             {
                 GostiId = 1,
-                Ime = "John Doe",
                 Idvjenčanja = 1,
-                StatusGosta = "Potvrdili dolazak"
-            },
-            new Gosti
-            {
-                GostiId = 2,
-                Ime = "Jane Smith",
-                Idvjenčanja = 1,
-                StatusGosta = "Potvrdili dolazak"
+                BrojGostiju = 100,
+
             }
         );
 
@@ -358,7 +421,7 @@ public partial class Pi05Context : DbContext
             new Hrana
             {
                 HranaId = 1,
-                Naziv = "Roast Beef",
+                Naziv = "Teleći Medaljoni",
                 CijenaPoOsobi = 50.00m,
                 TipHrane = "Glavno jelo",
                 PartnerId = 1
@@ -366,11 +429,68 @@ public partial class Pi05Context : DbContext
             new Hrana
             {
                 HranaId = 2,
-                Naziv = "Chicken Salad",
-                CijenaPoOsobi = 30.00m,
+                Naziv = "Pečena janjetina s krumpirima",
+                CijenaPoOsobi = 40.00m,
+                TipHrane = "Glavno jelo",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 3,
+                Naziv = "Pečena patka s mlincima",
+                CijenaPoOsobi = 60.00m,
+                TipHrane = "Glavno jelo",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 4,
+                Naziv = "Cheesecake",
+                CijenaPoOsobi = 10.00m,
+                TipHrane = "Desert",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 5,
+                Naziv = "Baklava",
+                CijenaPoOsobi = 11.00m,
+                TipHrane = "Desert",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 6,
+                Naziv = "Čokoladni lava cake",
+                CijenaPoOsobi = 9.00m,
+                TipHrane = "Desert",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 7,
+                Naziv = "Rolana puretina ili piletina punjena sirom i šunkom",
+                CijenaPoOsobi = 20.00m,
+                TipHrane = "Predjelo",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 8,
+                Naziv = "Tart od sira i špinata",
+                CijenaPoOsobi = 15.00m,
+                TipHrane = "Predjelo",
+                PartnerId = 1
+            },
+            new Hrana
+            {
+                HranaId = 9,
+                Naziv = "Juha",
+                CijenaPoOsobi = 11.00m,
                 TipHrane = "Predjelo",
                 PartnerId = 1
             }
+
         );
 
         modelBuilder.Entity<Izvještaj>().HasData(
@@ -387,9 +507,25 @@ public partial class Pi05Context : DbContext
             new Lokacija
             {
                 LokacijaId = 1,
-                Ime = "Beach Resort",
+                Ime = "Bijela Ruža",
                 CijenaPoDanu = 1500.00m,
-                PartnerId = 1
+                PartnerId = 1,
+            },
+            new Lokacija
+            {
+
+                LokacijaId = 2,
+                Ime = "Vjenčana Oaza",
+                CijenaPoDanu = 1500.00m,
+                PartnerId = 1,
+            },
+
+            new Lokacija
+            {
+                LokacijaId = 3,
+                Ime = "Bajka",
+                CijenaPoDanu = 1500.00m,
+                PartnerId = 1,
             }
         );
 
@@ -415,21 +551,41 @@ public partial class Pi05Context : DbContext
             {
                 PlaylistId = 1,
                 GlazbenikId = 1,
-                ListPjesama = "Song 1, Song 2, Song 3"
+                ListPjesama = "Narodna"
             },
 
              new Playlist
              {
                  PlaylistId = 2,
                  GlazbenikId = 1,
-                 ListPjesama = "Song 5, Song 6, Song 7"
+                 ListPjesama = "Folk"
              },
               new Playlist
               {
                   PlaylistId = 3,
                   GlazbenikId = 1,
-                  ListPjesama = "Song 5, Song 6, Song 7"
+                  ListPjesama = "Pop"
+              },
+              new Playlist
+              {
+                  PlaylistId = 4,
+                  GlazbenikId = 2,
+                  ListPjesama = "Narodna"
+              },
+
+             new Playlist
+             {
+                 PlaylistId = 5,
+                 GlazbenikId = 2,
+                 ListPjesama = "Folk"
+             },
+              new Playlist
+              {
+                  PlaylistId = 6,
+                  GlazbenikId = 2,
+                  ListPjesama = "Pop"
               }
+
         );
 
         modelBuilder.Entity<Ponude>().HasData(

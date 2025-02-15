@@ -6,7 +6,34 @@
 <html>
 <head>
     <title>Wedding Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Wedding Details</h1>
 
@@ -32,15 +59,15 @@
         {
             <li>@glazbenik.Ime - Price per Hour: @glazbenik.CijenaPoSatu</li>
         }
-    </ul>
-
+    </ul>;
     <h2>Guests</h2>
     <ul>
         @foreach (var gost in Model.Gosti)
         {
-            <li>@gost.Ime - Status: @gost.StatusGosta</li>
+            <li>Guest ID: @gost.GostiId - Wedding ID: @gost.Idvjenčanja - Number of Guests: @gost.BrojGostiju</li>
         }
     </ul>
+
 
     <h2>Food</h2>
     <ul>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjektProgramskog.Model;
 
@@ -11,9 +12,11 @@ using ProjektProgramskog.Model;
 namespace ProjektProgramskog.Migrations
 {
     [DbContext(typeof(Pi05Context))]
-    partial class Pi05ContextModelSnapshot : ModelSnapshot
+    [Migration("20250213152205_AddCvijecarnaToVjencanje")]
+    partial class AddCvijecarnaToVjencanje
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,12 +27,12 @@ namespace ProjektProgramskog.Migrations
 
             modelBuilder.Entity("Cvijećarna", b =>
                 {
-                    b.Property<int>("CvijecarnaId")
+                    b.Property<int>("CvijećarnaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("CvijećarnaID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CvijecarnaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CvijećarnaId"));
 
                     b.Property<decimal?>("Cijena")
                         .HasColumnType("decimal(10, 2)");
@@ -46,7 +49,7 @@ namespace ProjektProgramskog.Migrations
                         .HasColumnType("int")
                         .HasColumnName("PartnerID");
 
-                    b.HasKey("CvijecarnaId")
+                    b.HasKey("CvijećarnaId")
                         .HasName("PK__Cvijećar__BFA8E7A21956F4E2");
 
                     b.HasIndex("PartnerId");
@@ -56,21 +59,21 @@ namespace ProjektProgramskog.Migrations
                     b.HasData(
                         new
                         {
-                            CvijecarnaId = 1,
+                            CvijećarnaId = 1,
                             Cijena = 500m,
                             Ime = "Cvjetna oaza",
                             PartnerId = 1
                         },
                         new
                         {
-                            CvijecarnaId = 2,
+                            CvijećarnaId = 2,
                             Cijena = 650m,
                             Ime = "Cvijecarna Ana",
                             PartnerId = 2
                         },
                         new
                         {
-                            CvijecarnaId = 3,
+                            CvijećarnaId = 3,
                             Cijena = 700m,
                             Ime = "Buket snova",
                             PartnerId = 3
